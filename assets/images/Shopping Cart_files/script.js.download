@@ -1,0 +1,129 @@
+
+    var element = document.querySelector(".bars");
+    element.onclick = () => {
+      var nav = document.querySelector(".navbar");
+      if (nav.style.display === "none"){
+        nav.style.display="flex";
+        nav.style.flexDirection = "column";
+      }
+      else{
+        nav.style.display = "none";
+      }
+    };
+
+// open preview
+var previewContainer = document.querySelector('.product-preview');
+var previewBox = previewContainer.querySelectorAll('.preview');
+
+document.querySelectorAll('.product-container .product').forEach(product =>{
+    product.onclick = () =>{
+        previewContainer.style.display = "flex";
+        var name=product.getAttribute('data-name');
+        previewBox.forEach(preview => {
+            var target = preview.getAttribute('data-target');
+            if (name == target) {
+                preview.classList.add('active');
+            }
+        });
+    };
+});
+
+//close preview
+previewBox.forEach(close => {
+    var closePopUp =close.querySelector('.fa-times');
+    closePopUp.onclick =()=>{
+        previewContainer.style.display='none';
+        close.classList.remove('active');
+    };
+});
+
+//cart open and close 
+const cartBtn = document.getElementById("cart-icon");
+let isCartOpen = false;
+cartBtn.onclick = () =>{
+    var cartSection = document.querySelector('.cart-container');
+    if (!isCartOpen){
+        cartSection.style.display = "flex";
+        isCartOpen = true;
+    }
+};
+
+const closeBtn = document.getElementById("close-cart");
+closeBtn.onclick = () => {
+    var cartSection = document.querySelector('.cart-container');
+    isCartOpen = false;
+    cartSection.style.display = 'none';
+};
+
+
+var addToCart = document.querySelectorAll('.cart');
+addToCart.forEach(product => {
+    product.onclick = () => {
+        //var productBox = product.parentElement.parentElement;
+        //var price = productBox.getElementByClassName('price');
+        var cartSection = document.querySelector('.cart-container');
+        cartSection.style.display= "flex";
+        isCartOpen = true;
+        //cartSection.getElementById('total') = price;
+    };
+
+});
+
+
+
+//cart section working
+let products = [
+    { name: 'Product 1', price: 10 },
+    { name: 'Product 2', price: 20 },
+    { name: 'Product 3', price: 30 },
+];
+
+let cart = [];
+let total = 0;
+
+// Load products
+let productsDiv = document.getElementById('products');
+products.forEach(product => {
+    let div = document.createElement('div');
+    div.className = 'product';
+    div.innerHTML = `<h3>${product.name}</h3><p>Price: $${product.price}</p><button onclick="addToCart('${product.name}')">Add to cart</button>`;
+    productsDiv.appendChild(div);
+});
+
+// Load cart
+let cartDiv = document.getElementById('cart');
+
+function addToCart(name) {
+    let product = products.find(p => p.name === name);
+    let cartItem = cart.find(item => item.name === name);
+    if (!cartItem) {
+        cartItem = { name: name, quantity: 0, price: product.price };
+        cart.push(cartItem);
+    }
+    cartItem.quantity++;
+    total += product.price;
+    updateCart();
+}
+
+function removeFromCart(name) {
+    let cartItem = cart.find(item => item.name === name);
+    if (cartItem) {
+        cartItem.quantity--;
+        if (cartItem.quantity === 0) {
+            cart = cart.filter(item => item.name !== name);
+        }
+        total -= cartItem.price;
+        updateCart();
+    }
+}
+
+function updateCart() {
+    cartDiv.innerHTML = '';
+    cart.forEach(item => {
+        let div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `<h3>${item.name}</h3><p>Quantity: ${item.quantity}</p><p>Price: $${item.price}</p><button onclick="removeFromCart('${item.name}')">Remove from cart</button>`;
+        cartDiv.appendChild(div);
+    });
+    document.getElementById('total').innerText = total.toFixed(2);
+}

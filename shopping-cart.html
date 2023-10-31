@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!---header section starts--->
+<header>
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="bars" onclick="navBar()"><ion-icon name="menu"></ion-icon></label>
+  
+    <a href="#" class="logo">Flower<span>.</span></a>
+  
+    <nav class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#about">About</a>
+        <a href="#products">Products</a>
+        <a href="./index.html#review">Review</a>
+        <a href="./index.html#contact">Contact</a>
+    </nav>
+  
+    <div class="icons">
+        <a href="#"><ion-icon name="heart"></ion-icon></a>
+        <a href="#" id="cart-icon"><ion-icon name="cart"></ion-icon></a>
+        <a href="#"><ion-icon name="person"></ion-icon></a>
+    </div>
+    </header>
+  
+    <!---header section ends--->
+
+    <!-- cart section starts here -->
+
+    <div class="cart-container">
+        <h3>Shopping Cart</h3>
+        <div id="cart">
+
+        </div>
+        <h2>Total:<span>eur</span> <span id="total">0</span></h2>
+        <div class="checkout">
+            <a href="#" id="close-cart">Close</a>
+            <a href="#" id="checkout">go to checkout</a>
+        </div>
+    </div>
+    <!-- cart section ends here  -->
+
+    <!-- product listing section starts here -->
+
+    <div class="container">
+
+        <h3 class="title">our <span>products</span> </h3>
+        
+        <div class="product-container">
+
+            <div class="product" data-name="p-1" id="p-1">
+                <img src="./assets/images/classic-bouquet.webp" alt="">
+                <h3>classic bouquet</h3>
+                <div class="price">18eur</div>
+            </div>
+
+            <div class="product" data-name="p-2" id="p-2">
+                <img src="./assets/images/dried-flower-bouquet.webp" alt="">
+                <h3>dried flower bouquet</h3>
+                <div class="price">28eur</div>
+            </div>
+
+            <div class="product" data-name="p-3" id="p-3">
+                <img src="./assets/images/garden-bouquet.webp" alt="">
+                <h3>garden bouquet</h3>
+                <div class="price">21eur</div>
+            </div>
+
+            <div class="product" data-name="p-4" id="p-4">
+                <img src="./assets/images/mixed-bouquet.webp" alt="">
+                <h3>mixed bouquet</h3>
+                <div class="price">25eur</div>
+            </div>
+
+            <div class="product" data-name="p-5" id="p-5">
+                <img src="./assets/images/fancy-bouquet.png" alt="">
+                <h3>fancy bouquet</h3>
+                <div class="price">38eur</div>
+            </div>
+
+            <div class="product" data-name="p-6" id="p-6">
+                <img src="./assets/images/grand-bouquet.webp" alt="">
+                <h3>grand bouquet</h3>
+                <div class="price">40eur</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- product listing section ends here -->
+
+    <!-- product preview starts here -->
+
+    <div class="product-preview">
+
+        <div class="preview" data-target="p-1">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/classic-bouquet.webp" alt="">
+            <h3>classic bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">18eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-2">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/dried-flower-bouquet.webp" alt="">
+            <h3>dried flower bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>( 150 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">28eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-3">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/garden-bouquet.webp" alt="">
+            <h3>garden bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">21eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-4">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/mixed-bouquet.webp" alt="">
+            <h3>mixed bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">25eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-5">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/fancy-bouquet.png" alt="">
+            <h3>fancy bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">38eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p-6">
+            <i class="fas fa-times"></i>
+            <img src="./assets/images/grand-bouquet.webp" alt="">
+            <h3>grand bouquet</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>( 250 )</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Consequatue, dolorem</p>
+            <div class="price">40eur</div>
+            <div class="button">
+                <a href="#" class="buy">buy now</a>
+                <a href="#" class="cart">add to cart</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- product preview ends here -->
+
+<!-- script external link -->
+<script src="./script.js"></script>
+
+<!-- cdn for ion icons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
