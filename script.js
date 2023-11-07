@@ -132,12 +132,6 @@ function createProductPage(product) {
 
 // add quantinty or remove item with icons + and - 
 
-var plus=querySelectorAll(".quantity-up");
-if (plus!=null) {
-    plus.forEach(button  => {
-        button.addEventListener("click", ()=>{
-            alert('clicked up button !');
-        });
-    });
-};
+var plus_pl = document.querySelectorAll(".quantity-up");
+plus_pl[0].onclick = () => {alert("Hello up !");};
 
