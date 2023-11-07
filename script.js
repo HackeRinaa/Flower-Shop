@@ -130,3 +130,14 @@ function createProductPage(product) {
     return productPage;
    }
 
+// add quantinty or remove item with icons + and - 
+
+var plus=querySelectorAll(".quantity-up");
+if (plus!=null) {
+    plus.forEach(button  => {
+        button.addEventListener("click", ()=>{
+            alert('clicked up button !');
+        });
+    });
+};
+
